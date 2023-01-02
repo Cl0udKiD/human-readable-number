@@ -1,6 +1,8 @@
 module.exports = function toReadable (num) {
 p=num.toString().length;
-    s=[];
+check=['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+s=[];
+if(num==0){s.push('zero')}    
     for(let i=0;i<num.toString().length;++i){
         //teens
         if ((num.toString()[i]==1)&&(p%3==2)){
@@ -19,7 +21,7 @@ p=num.toString().length;
         if (p%3==2){
             if(num.toString()[i]==2){s.push('twenty')}
             if(num.toString()[i]==3){s.push('thirty')}
-            if(num.toString()[i]==4){s.push('fourty')}
+            if(num.toString()[i]==4){s.push('forty')}
             if(num.toString()[i]==5){s.push('fifty')}
             if(num.toString()[i]==6){s.push('sixty')}
             if(num.toString()[i]==7){s.push('seventy')}
@@ -27,7 +29,7 @@ p=num.toString().length;
             if(num.toString()[i]==9){s.push('ninety')}
         }else{
         //higher then 99
-        if(num.toString()[i-1]!==1){
+        if((num.toString()[i-1]!==1)&&(!check.includes(s[s.length-1]))){
             if(num.toString()[i]==1){s.push('one')}
             if(num.toString()[i]==2){s.push('two')}
             if(num.toString()[i]==3){s.push('three')}
